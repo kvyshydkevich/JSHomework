@@ -1,0 +1,8 @@
+{
+	"name": "simple app",
+	"version": "0.0.1",
+	"author": "KV",
+	"scripts": {
+		"start": "index.js"
+	}
+}
