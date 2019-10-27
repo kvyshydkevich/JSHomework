@@ -8,7 +8,6 @@ function isPalindrome(str){
     return(lowStr === reversedPalindrome);  // Checking if reversed string is equal to modified string and return results
 }
 
- 
 
 function printCons(s){
 
@@ -16,12 +15,10 @@ function printCons(s){
 
 }
 
+
 let s1='Race fast, safe car';
-
 let s2='Anita lava la tina';
-
 let s3='lalalaltratata';
-
 let s4='A roza upala na lapu Azora';
 
 printCons(s1);
