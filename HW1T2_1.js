@@ -8,16 +8,16 @@ function isPalindrome(str){
       
     console.log(str + " is " +
     ((lowStr === reversedPalindrome) ? "" : "not ") +  "a palindrome");
-    // Check if reversed string is equal to modified string and showing results
+    // Checking if reversed string is equal to modified string and showing results
     }
 
-      isPalindrome('Race fast, safe car');
+ isPalindrome('Race fast, safe car');
 
-      isPalindrome('Anita lava la tina');
+ isPalindrome('Anita lava la tina');
 
-      isPalindrome('lalalaltratata');
+ isPalindrome('lalalaltratata');
 
-      isPalindrome('A roza upala na lapu Azora');
+ isPalindrome('A roza upala na lapu Azora');
 
 
 
