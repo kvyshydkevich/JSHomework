@@ -1,14 +1,13 @@
 function isPalindrome(str){
 
-    var repl = /[^a-zA-Z0-9]/gi    
-    var lowStr = str.replace(repl, "").toLowerCase(); // Bring all letters to lower case and remove special characters
+    let repl = /[^a-zA-Z0-9]/gi    
+    let lowStr = str.replace(repl, "").toLowerCase(); // Bring all letters to lower case and remove special characters
     
    
-    var reversedPalindrome = lowStr.split('').reverse().join(''); //Reversing a string
+    let reversedPalindrome = lowStr.split('').reverse().join(''); //Reversing a string
       
     console.log(str + " is " +
-    ((lowStr === reversedPalindrome) ? "" : "not ") +
-    "a palindrome");
+    ((lowStr === reversedPalindrome) ? "" : "not ") +  "a palindrome");
     // Check if reversed string is equal to modified string and showing results
     }
 
