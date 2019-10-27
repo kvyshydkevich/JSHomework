@@ -11,13 +11,15 @@ function isPalindrome(str){
     // Check if reversed string is equal to modified string and showing results
     }
 
-      isPalindrome('Race fast, safe car')
+      isPalindrome('Race fast, safe car');
 
-      isPalindrome('Anita lava la tina')
+      isPalindrome('Anita lava la tina');
 
-      isPalindrome('A roza upala na lapu Azora')
+      isPalindrome('lalalaltratata');
 
-      isPalindrome('lalalaltratata')
+      isPalindrome('A roza upala na lapu Azora');
+
+
 
 
 
