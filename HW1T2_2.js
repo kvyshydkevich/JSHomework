@@ -1,10 +1,10 @@
-function isPalindrome(str){
-    let repl = /[^a-zA-Z0-9]/gi    
-    let lowStr = str.toLowerCase().replace(repl, ""); // Bring all letters to lower case and remove special characters
-    let l = lowStr.length;
+function isPalindrom(str){
+    let rep = /[^a-zA-Z0-9]/gi    
+    let lowerStr = str.toLowerCase().replace(rep, ""); // Bring all letters to lower case and remove special characters
+    let l = lowerStr.length;
  
     for (let i = 0; i < l/2; i++) {//Checking the [i] and [l - 1 - i] characters
-       if (lowStr[i] !== lowStr[l - 1 - i]) { //When the characters don't match we exit loop and returning result
+       if (lowerStr[i] !== lowerStr[l - 1 - i]) { //When the characters don't match we exit loop and returning result
             return false; 
         }
      }
@@ -13,19 +13,19 @@ function isPalindrome(str){
   }
  
  
-function printCons(s){
+function printCons(ss){
 
-    console.log(s + " - is " + ((isPalindrome(s)) ? "" : "not ") +  "a palindrome");
+    console.log(ss + " - is " + ((isPalindrom(ss)) ? "" : "not ") +  "a palindrome");
 
 }
 
 
-let s1='Race fast, safe car';
-let s2='Anita lava la tina';
-let s3='lalalaltratata';
-let s4='A roza upala na lapu Azora';
+let st1='Race fast, safe car';
+let st2='Anita lava la tina';
+let st3='lalalaltratata';
+let st4='A roza upala na lapu Azora';
 
-printCons(s1);
-printCons(s2);
-printCons(s3);
-printCons(s4);
+printCons(st1);
+printCons(st2);
+printCons(st3);
+printCons(st4);

@@ -3,6 +3,6 @@
 	"version": "0.0.1",
 	"author": "KV",
 	"scripts": {
-		"start": "index.js"
+		"start": "HW1T2_2.js"
 	}
 }
