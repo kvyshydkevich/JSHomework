@@ -1,97 +1,160 @@
 
-//  !Not ready yet!
+//  json read-write
 
-file="C:/New/2.json";
+function isBoolean(obj) {
+    return typeof(obj) === 'boolean';
+}
 
+function isArr(obj) {
+ return Array.isArray(obj);
+}
+
+function isObject(obj) {
+    return typeof(obj) === 'object';
+}
+
+
+function isNull(obj) {
+    return obj == null;
+}
+
+function isString(obj) {
+    return typeof(obj) === 'string';
+}
+
+function containsText(obj,text) {
+    return obj.includes(text);
+}
+
+function isNumber(obj, number) {
+    return typeof(obj) === 'number';
+}
+
+function isEqual(obj, eql) {
+    return obj == eql;
+}
+
+function isUndefined(obj) {
+    return typeof(obj) === 'undefined';
+}
+
+
+function validateFile(fileContent){
+    let result = "";
+
+    if(!isBoolean(fileContent.flag)){
+        result += "flag: " + JSON.stringify(fileContent.flag) + " - flag  type isn't boolean \r\n";
+    }
+
+    if(!isArr(fileContent.myPromises)){
+        result += "myPromises: " + JSON.stringify(fileContent.myPromises) + " - myPromises isn't array \r\n";
+    }
+
+    if(!isObject(fileContent.element)){
+        result += "element: " + JSON.stringify(fileContent.element) + " - element type isn't object \r\n";
+    }
+
+    if(!isNull(fileContent.screenshot)){
+        result += "screenshot: " + JSON.stringify(fileContent.screenshot) + " - screenshot isn't null \r\n";
+    }
+
+    if(!isString(fileContent.elementText)){
+        result += "elementText: " + JSON.stringify(fileContent.elementText) + " - elementText type isn't string \r\n";
+    }
+
+    if(!isString(fileContent.allElementsText)){
+        result += "allElementsText: " + JSON.stringify(fileContent.allElementsText) + " - allElementsText type isn't string \r\n";
+        } else    {  let te='const';
+            if (!containsText(fileContent.allElementsText, te)) {
+                result += "allElementsText: " + JSON.stringify(fileContent.allElementsText) + " - allElementsText isn't contains const \r\n";
+                 }
+             }
+
+    if(!isNumber(fileContent.counter))  {
+        result += "counter: " + JSON.stringify(fileContent.counter) + " - counter type isn't number \r\n";
+        } else { 
+            if (!(fileContent.counter)>10) {
+                result += "counter: " + JSON.stringify(fileContent.counter) + " - counter isn't bigger then 10 \r\n";         
+                 }
+            }
+
+    if(!isEqual(fileContent.config, "Common")) {
+                result += "config: " + JSON.stringify(fileContent.config) + " - config isn't equal Common \r\n";
+            }        
+    
+    let string1 = "FiRst";
+    if(isUndefined(fileContent.const)) {
+                result += "const: " + JSON.stringify(fileContent.const) + " - const type is undefined \r\n";
+                } else {  if (isNull(fileContent.const)) {
+                    result += "const: " + JSON.stringify(fileContent.const) + " - counter is null \r\n";         
+                     } else {                       
+                        let string2 = fileContent.const.toString();
+                        if(!isEqual(string2.toLowerCase(), string1.toLowerCase())){
+                            result += "const: " + JSON.stringify(fileContent.const) + " - const isn't equal FiRst (case insensitive) \r\n";
+                        }       
+            }
+    }
+
+    if(!isArr(fileContent.parameters)) {
+         result += "parameters: " + JSON.stringify(ileContent.parameters) + " - parameters isn't array \r\n";
+              }  else {                     
+                         if(!isEqual(fileContent.parameters.length, 8)){
+                         result += "parameters: " + JSON.stringify(fileContent.parameters) + " - parameters length isn't 8 \r\n";
+        } 
+    }      
+
+    if(!isString(fileContent.description)){
+        result += "description: " + JSON.stringify(fileContent.description) + " - description type isn't string \r\n";
+        } else  {
+            if (fileContent.description.length <= 5) {
+                        result += "description: " + JSON.stringify(fileContent.description) + " - description length <= 5 \r\n";
+                            } else {
+                                     if (fileContent.description.length >= 13) {
+                                             result += "description: " + JSON.stringify(fileContent.description) + " - description length >= 13 \r\n";  }
+     } 
+    }  
+   
+ return result;
+}
+       
+
+function fileRead(file) {
 let fs = require("fs");
- console.log("\n Reading \n");
-
+console.log("\n ~~~Reading~~~ \n");
  let contents = fs.readFileSync(file);
-
  let jsonContent = JSON.parse(contents);
 // Get Value from JSON
 
-console.log("content:", jsonContent);
- console.log("flag:", jsonContent.flag);
- console.log("myPromises:", jsonContent.myPromises);
- console.log("element:", jsonContent.element);
- console.log("\n --------- \n");
 
- console.log("flag  type:", typeof(jsonContent.flag));
- console.log("myPromises  type is array:", Array.isArray(jsonContent.myPromises));
- console.log("element type:", typeof(jsonContent.element));
- console.log("screenshot  type:", typeof(jsonContent.screenshot));
- console.log("elementText  type:", typeof(jsonContent.elementText));
- console.log("allElementsText includes const:", jsonContent.allElementsText.includes("const"));
- console.log("counter  type:",  typeof(jsonContent.counter));
- console.log("counter>10:", jsonContent.counter>10);
- console.log("config == Common:", jsonContent.config == "Common");
-
-
-let match1=typeof(jsonContent.flag)==='boolean';
-let match2=Array.isArray(jsonContent.myPromises)==='true';
-let match3=typeof(jsonContent.element)==='object';
-let match4=typeof(jsonContent.screenshot)==='null';
-let match5=typeof(jsonContent.elementText)==='string';
-
-let match6;
-if (!typeof(jsonContent.elementText)==='string') {
-    match6='false';
-    console.log("elementText not string" + match6);
-   } else { match6=(jsonContent.allElementsText.includes("const"));
-console.log("else allElementsText " + match6);
+ let res;
+return res = validateFile(jsonContent);
 }
 
-let match7;
-if (!typeof(jsonContent.counter)==='number') {
-    match7='false';
-    console.log("not number" + match7);
-   } else { match7=((jsonContent.counter)>10);
-console.log("else " + match7);
-   }
 
-let match8=(jsonContent.config == "Common");
+const arrayFiles = ["C:/New/1.json","C:/New/2.json","C:/New/3.json", "C:/New/4.json"];
+let file1;
+fs = require('fs') ;
+let data =[];
+let comment=[];
+let text;
+let resultt;
+for (let i = 0; i < 4; i++) {
+    file1=arrayFiles[i];
+    resultt=fileRead(file1)
+    if (!resultt) { 
+        console.log("\n OK! Good json: \n" + file1); 
+        continue; 
+            } else console.log("\n Bad json: " + file1 + "  See comments in Results.txt");   
+             comment[i] = resultt;
+            // Data which will write in a file. 
+            data [i] = "--------------------------------------------------------------------------------- \n" + file1 + " - Results of testing file: \n" + comment[i];
 
-let string1 = "FiRst";
-let jsonC1 = jsonContent.const;
-
-let match9;
-if(typeof(jsonC1) == "undefined") {
-    match9 = 'false';
-    console.log("const undef");
-} else { if (jsonC1 == "null") {
-    match9 = 'false';
-    console.log("const null");
-} else {
-    string2 = jsonC1.toString();
-    match9 = string2.toLowerCase() == string1.toLowerCase();
-    console.log("const " + match9);
         }
-}
+     
+ // Write data in 'Result.txt' . 
+ fs.writeFile("C:/New/Results.txt", data, (err) => { 
+                
+    // In case of a error throw err. 
+    if (err) throw err; 
+}) 
 
-let match10;
-let arr = jsonContent.parameters;
-if (!Array.isArray(jsonContent.parameters)==='true') {
-    match10 = 'false';
-    console.log("parameters not array");
-} else { match10 = arr.length == 8; console.log("parameters is 8: ", match10);}
-
-let match11;
-if (!typeof(jsonContent.description) ==='string') {
-    match11='false';
-    console.log("description not string" + match11);
-        } else { 
-                if (jsonContent.description.length <= 5) {
-                match11='false';
-                console.log("description length <= 5");
-                                } else {
-                     if (jsonContent.description.length >= 13) {
-                        match11='false';
-                        console.log("description length >= 13");
-                       }   else { 
-                                match11='true';
-                                console.log("description " + match11); 
-                       }        
-}
-        }
-if ( match1 && match2 && match3 && match4 && match5 && match6  && match7 && match8 && match9 && match10 && match11) { console.log("\n OK! Good json: \n" + file);} else console.log("\n Bad json: \n" + file);
