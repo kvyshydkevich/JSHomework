@@ -138,7 +138,7 @@ let data =[];
 let comment=[];
 let text;
 let resultt;
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < arrayFiles.length; i++) {
     file1=arrayFiles[i];
     resultt=fileRead(file1)
     if (!resultt) { 
