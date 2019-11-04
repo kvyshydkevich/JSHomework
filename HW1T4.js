@@ -121,39 +121,34 @@ function validateFile(fileContent){
 function fileRead(file) {
 let fs = require("fs");
 console.log("\n ~~~Reading~~~ \n");
- let contents = fs.readFileSync(file);
- let jsonContent = JSON.parse(contents);
-// Get Value from JSON
-
-
- let res;
-return res = validateFile(jsonContent);
+let contents = fs.readFileSync(file);
+let jsonContent = JSON.parse(contents);
+return jsonContent;
 }
 
 
 const arrayFiles = ["C:/New/1.json","C:/New/2.json","C:/New/3.json", "C:/New/4.json"];
 let file1;
-fs = require('fs') ;
 let data =[];
+let fs = require("fs");
 let comment=[];
-let text;
-let resultt;
 for (let i = 0; i < arrayFiles.length; i++) {
     file1=arrayFiles[i];
-    resultt=fileRead(file1)
-    if (!resultt) { 
+    let fileContent=fileRead(file1)
+    if (!validateFile(fileContent)) { 
         console.log("\n OK! Good json: \n" + file1); 
         continue; 
-            } else console.log("\n Bad json: " + file1 + "  See comments in Results.txt");   
-             comment[i] = resultt;
-            // Data which will write in a file. 
-            data [i] = "--------------------------------------------------------------------------------- \n" + file1 + " - Results of testing file: \n" + comment[i];
-
-        }
+    } else {
+        console.log("\n Bad json: " + file1 + "  See comments in Results.txt");   
+        comment[i] = fileContent;
+        // Data which will write in a file. 
+        data [i] = "--------------------------------------------------------------------------------- \n" + file1 + " - Results of testing file: \n" + comment[i];
+    }  
+ }
      
  // Write data in 'Result.txt' . 
  fs.writeFile("C:/New/Results.txt", data, (err) => { 
-                
+               
     // In case of a error throw err. 
     if (err) throw err; 
 }) 
