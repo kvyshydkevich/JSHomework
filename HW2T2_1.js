@@ -17,13 +17,13 @@ class Vehicle {
 
 class MotorisedVehicle extends Vehicle {
     constructor(brand, age, vehicleType, licenseNumber, engineDisplacement, fuelType) {
-      super(brand, age, vehicleType, licenseNumber, engineDisplacement);
+      super(brand, age, vehicleType);
       this._licenseNumber = licenseNumber;
       this.engineDisplacement = engineDisplacement;
       this.fuelType = fuelType;
     }
     get licenseNumber() {
-      return this._licenseNumber;
+     return this._licenseNumber;
     }
 }
 
@@ -44,10 +44,10 @@ class UnMotorisedVehicle extends Vehicle {
       return this._capacity;
     }
   
-    greeting(hello) {
+    greeting() {
       console.log("Can I park " + this.brand + "?");
     }
-
+    
     set capacity(capacity) {
       this._capacity = newCapacity;
     }
@@ -63,9 +63,9 @@ class UnMotorisedVehicle extends Vehicle {
     get capacity() {
       return this._capacity;
     }
-  
-    greeting(hello) {
-      console.log("Can I park " + this.brand + "?");
+
+    greeting() {
+      console.log("Can I put somewhere my " + this.brand + "?");
     }
 
     set capacity(capacity) {
@@ -78,8 +78,7 @@ class UnMotorisedVehicle extends Vehicle {
       super(brand, age, vehicleType);
       
     }
-   
-    }
+  }
 
     class Rocket extends MotorisedVehicle {
       constructor(brand, age, vehicleType, licenseNumber, engineDisplacement, fuelType, capacity) {
@@ -90,11 +89,11 @@ class UnMotorisedVehicle extends Vehicle {
       get capacity() {
         return this._capacity;
       }
-    
+  /*  
       greeting(hello) {
         console.log("Can I park " + this.brand + "?");
       }
-  
+  */
       set capacity(capacity) {
         this._capacity = newCapacity;
       }
