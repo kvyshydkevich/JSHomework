@@ -1,7 +1,7 @@
 let path = require('path'), fs = require('fs');
 let filesFound = [];
 let data = [];
-let filesToJson = [];
+//let filesToJson = [];
 let j = 0;
 
 function searchFiles(startPath, filter) {
@@ -19,8 +19,8 @@ function searchFiles(startPath, filter) {
             searchFiles(filename, filter); //recurse searching
         }
         else if (filename.indexOf(filter) >= 0) {
-            console.log('-- file found: ', filename);
-            filesToJson[j] = "-------------------------------------------- \n" + filename + " found       \n";
+            console.log('--------------- file found: ', filename);
+ //           filesToJson[j] = "-------------------------------------------- \n" + filename + " found       \n";
             filesFound[j] = filename;
             j++;
         }
@@ -87,7 +87,7 @@ function onFileChange(type, current, previous) {
 }
 
 
-data = filesToJson;
+data = JSON.stringify(filesFound, null, 4);
 // Writes data in 'Result.json' . 
 fs.writeFile("C:/New/Result.json", data, (err) => {
     // In case of a error throw err. 
